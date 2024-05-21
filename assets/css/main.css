@@ -1,0 +1,53 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+fieldset {
+    background: red;
+    padding: 20px;
+    border: solid black 5px;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+label {
+    padding: 5px;
+    border: solid black 1px;
+    border-radius: 10px;
+    background: black;
+    color: white;
+}
+label, input {
+    width: 300px;
+    height: 20px;
+    margin: 5px;
+}
+input.sub {
+    margin-top: 20px;
+    height: 30px;
+    border: black;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    font-family: Impact;
+}
+input.sub:hover {
+    cursor: pointer;
+}
+p {
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+a {
+    color: white;
+}
+.massage {
+    border-radius: 10px;
+    background-color: greenyellow;
+    display: flex;
+    justify-content: center;
+    color: black;
+}
