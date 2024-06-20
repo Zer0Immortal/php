@@ -2,8 +2,8 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Хост: 192.168.1.83:3306
--- Время создания: Май 21 2024 г., 16:57
+-- Хост: 127.0.0.1:3306
+-- Время создания: Июн 20 2024 г., 22:36
 -- Версия сервера: 8.0.30
 -- Версия PHP: 8.1.9
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `forum` (
   `id` int NOT NULL,
-  `full_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `full_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `massage` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -47,7 +47,11 @@ INSERT INTO `forum` (`id`, `full_name`, `massage`) VALUES
 (7, 'loh', 'И еще походу проблема с высотой. При длинных сообщениях наверное не будет умещаться'),
 (8, 'asddg', 'Ну, сыровато но выглядит норм'),
 (9, 'asddg', 'Надо время добавить было еще'),
-(10, 'asdawd', 'Лень(');
+(16, 'loh', 'Редактирование и удаление есть\r\n'),
+(17, 'loh', 'Просмотр тут есть тоже\r\n'),
+(18, 'loh', 'И добавление есть'),
+(20, 'loh', 'Вроде норм'),
+(21, 'Король', 'Куку, ёпта!');
 
 -- --------------------------------------------------------
 
@@ -57,10 +61,10 @@ INSERT INTO `forum` (`id`, `full_name`, `massage`) VALUES
 
 CREATE TABLE `users` (
   `id` int NOT NULL,
-  `full_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `login` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `password` varchar(512) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `full_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `login` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `avatar` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -76,7 +80,8 @@ INSERT INTO `users` (`id`, `full_name`, `login`, `email`, `password`, `avatar`) 
 (30, 'asdawd', 'lol', 'betaroma97@gmail.com', '202cb962ac59075b964b07152d234b70', ''),
 (31, 'lol2', 'lol2', 'betaroma97@gmail.com', '202cb962ac59075b964b07152d234b70', 'uploads/1715869473photo1715014260.jpeg'),
 (32, 'dadadadada', 'dada', 'addsa@asdad', '202cb962ac59075b964b07152d234b70', 'uploads/1716217194Снимок экрана (5).png'),
-(33, 'asddg', 'tyt', 'betaroma97@gmail.com', '202cb962ac59075b964b07152d234b70', 'uploads/1716227196Снимок экрана (1).png');
+(33, 'asddg', 'tyt', 'betaroma97@gmail.com', '202cb962ac59075b964b07152d234b70', 'uploads/1716227196Снимок экрана (1).png'),
+(34, 'Король', 'king', 'addsa@asdad', '202cb962ac59075b964b07152d234b70', 'uploads/1718911773Снимок экрана (2).png');
 
 --
 -- Индексы сохранённых таблиц
@@ -102,13 +107,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `forum`
 --
 ALTER TABLE `forum`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
