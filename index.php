@@ -20,6 +20,7 @@
     <input class="sub" type="submit">
         <p>
             У вас нет аккаунта? - <a href="register.php">Зарегистрируйтесь!</a>
+            <a href="forum.php">Форум</a>
         </p>
         <p class="massage">
             <?php

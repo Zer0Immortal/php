@@ -1,8 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION['user'])){
-    header('Location: index.php');
-}
+
 ?>
 
 <!doctype html>
@@ -27,12 +25,18 @@ if(!isset($_SESSION['user'])){
         }
         table {
             height: 400px;
+            overflow-y: scroll;
+            overflow-x: hidden;
             border: black solid 1px;
             border-collapse: inherit;
             display: flex;
             flex-direction: column;
             /*align-content: space-between;*/
             justify-content: flex-start;
+        }
+        table::-webkit-scrollbar {
+            width: 0;
+            height: 0;
         }
         tr {
             display: flex;
@@ -66,7 +70,7 @@ if(!isset($_SESSION['user'])){
             border: black solid 1px;
             margin: 0px;
         }
-        a {
+        .logout {
             width: 50px;
             padding: 5px;
             border: black solid 1px;
@@ -77,14 +81,23 @@ if(!isset($_SESSION['user'])){
             font-size: 15px;
             text-decoration: none;
         }
+        a {
+            width: 10%;
+            height: 20px;
+            border: black solid 1px;
+        }
 
+        <?php
+        if(!isset($_SESSION['user'])){
+            echo "form { display: none; }";
+        }
+        ?>
 
     </style>
 </head>
 <body>
 
 <script>
-    massage();
     function massage() {
         $.ajax({
             url: '/vender/pull_massage.php',
@@ -92,10 +105,17 @@ if(!isset($_SESSION['user'])){
             dataType: 'json',
             data: null,
             success: function (data) {
-                console.log(data.length);
+                console.log(data);
                 if(stroke < data.length) {
                     for (let i = stroke; i < data.length;i++) {
-                        let Str ='<tr><td class="c1">' + data[i][0] + '</td>  <td class="c2">' + data[i][1] + '</td>  <td class="c3">' + data[i][2] + '</td></tr>';
+                        let Str ='<tr>' +
+                            '<td class="c1">' + data[i][0] + '</td>  ' +
+                            '<td class="c2">' + data[i][1] + '</td>  ' +
+                            '<td class="c3">' + data[i][2] + '</td>';
+                        if(data[i][3] == true) {
+                            Str += '<a href="red.php?id=' + data[i][0] + '">Редактировать</a><a href="vender/kill.php?id=' + data[i][0] + '">Удалить</a>'
+                        }
+                        Str +='</tr>';
                         document.getElementById('allmassage').innerHTML += Str;
                     }
                     stroke = data.length;
@@ -104,6 +124,7 @@ if(!isset($_SESSION['user'])){
         });
     }
         let stroke = 0;
+        massage();
         setInterval(massage, 1000);
 
 </script>
@@ -122,9 +143,10 @@ if(!isset($_SESSION['user'])){
                 unset($_SESSION['massage']);
 
             } ?></p>
-        <a href="profile.php" class="logout">Назад</a>
+
     </fieldset>
 </form>
+    <a href="profile.php" class="logout">Назад</a>
 </div>
 <script>
 
