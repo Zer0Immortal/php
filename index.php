@@ -20,8 +20,8 @@
     <input class="sub" type="submit">
         <p>
             У вас нет аккаунта? - <a href="register.php">Зарегистрируйтесь!</a>
-            <a href="forum.php">Форум</a>
         </p>
+        <a class="for" href="forum.php">Форум</a>
         <p class="massage">
             <?php
             if ( isset($_SESSION['massage']) ){

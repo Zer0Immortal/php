@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июн 20 2024 г., 22:36
+-- Время создания: Июн 22 2024 г., 08:38
 -- Версия сервера: 8.0.30
 -- Версия PHP: 8.1.9
 
@@ -29,29 +29,10 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `forum` (
   `id` int NOT NULL,
+  `login` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `full_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `massage` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Дамп данных таблицы `forum`
---
-
-INSERT INTO `forum` (`id`, `full_name`, `massage`) VALUES
-(1, 'loh', 'Привет, Петушок!!!'),
-(2, 'dadadadada', 'Привет тварь'),
-(3, 'dadadadada', 'Стефани лох\r\n'),
-(4, 'asddg', 'Ну привет'),
-(5, 'asddg', 'Привет всем'),
-(6, 'loh', 'Вроде работает\r\nТок грузит долго'),
-(7, 'loh', 'И еще походу проблема с высотой. При длинных сообщениях наверное не будет умещаться'),
-(8, 'asddg', 'Ну, сыровато но выглядит норм'),
-(9, 'asddg', 'Надо время добавить было еще'),
-(16, 'loh', 'Редактирование и удаление есть\r\n'),
-(17, 'loh', 'Просмотр тут есть тоже\r\n'),
-(18, 'loh', 'И добавление есть'),
-(20, 'loh', 'Вроде норм'),
-(21, 'Король', 'Куку, ёпта!');
 
 -- --------------------------------------------------------
 
@@ -107,7 +88,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `forum`
 --
 ALTER TABLE `forum`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT для таблицы `users`

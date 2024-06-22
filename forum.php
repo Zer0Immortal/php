@@ -86,6 +86,23 @@ session_start();
             height: 20px;
             border: black solid 1px;
         }
+        .function{
+            width: 160px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            border: none;
+            padding: 0;
+        }
+        .function a {
+            width: min-content;
+            text-decoration: none;
+            color: black;
+        }
+        .function a:hover {
+            border: gray solid 1px;
+            color: gray;
+        }
 
         <?php
         if(!isset($_SESSION['user'])){
@@ -109,11 +126,11 @@ session_start();
                 if(stroke < data.length) {
                     for (let i = stroke; i < data.length;i++) {
                         let Str ='<tr>' +
-                            '<td class="c1">' + data[i][0] + '</td>  ' +
-                            '<td class="c2">' + data[i][1] + '</td>  ' +
-                            '<td class="c3">' + data[i][2] + '</td>';
+                            '<td class="c1">' + data[i]['id'] + '</td>  ' +
+                            '<td class="c2">' + data[i]['full_name'] + '</td>  ' +
+                            '<td class="c3">' + data[i]['massage'] + '</td>';
                         if(data[i][3] == true) {
-                            Str += '<a href="red.php?id=' + data[i][0] + '">Редактировать</a><a href="vender/kill.php?id=' + data[i][0] + '">Удалить</a>'
+                            Str += '<div class="function"><a href="red.php?id=' + data[i]['id'] + '">Редактировать</a><a href="vender/kill.php?id=' + data[i]['id'] + '">Удалить</a></div>'
                         }
                         Str +='</tr>';
                         document.getElementById('allmassage').innerHTML += Str;

@@ -9,10 +9,11 @@ for ($i = 0; $i < count($data); $i++) {
         $data[$i][3] = false;
         continue;
     }
-    if($data[$i]['full_name'] == $_SESSION['user']['full_name']){
+    if($data[$i]['login'] == $_SESSION['user']['login']){
         $data[$i][3] = true;
     }
     else $data[$i][3] = false;
+    unset($data[$i][1]);
 }
 
 echo json_encode($data);

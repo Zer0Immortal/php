@@ -8,8 +8,8 @@ if(!empty($_POST['massage'])) {
 
     $messege = $_POST['massage'];
 
-    $query = $connect->prepare('INSERT INTO `forum` (`id`, `full_name`, `massage`) VALUES (NULL, ?, ?)');
-    $query->execute([$_SESSION['user']['full_name'], $messege]);
+    $query = $connect->prepare('INSERT INTO `forum` (`id`, `login`, `full_name`, `massage`) VALUES (NULL, ?, ?, ?)');
+    $query->execute([$_SESSION['user']['login'], $_SESSION['user']['full_name'], $messege]);
 } else {
     $_SESSION['massage'] = 'Сообщение отсутствует!!!';
 }

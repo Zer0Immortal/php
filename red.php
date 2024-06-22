@@ -6,7 +6,7 @@ if(!isset($_SESSION['user'])){
 
 require_once 'vender/connect.php';
 $data = $connect->query("SELECT * FROM forum WHERE id = {$_GET['id']}")->fetch();
-if($data[1] != $_SESSION['user']['full_name']) {
+if($data['login'] != $_SESSION['user']['login']) {
     $_SESSION['massage'] = "Вы не писали это сообщение!";
     header('Location: forum.php');
 }
@@ -67,7 +67,7 @@ if($data[1] != $_SESSION['user']['full_name']) {
     <form id="form" action="vender/redact.php" method="post">
         <fieldset>
             <legend>Редактирование</legend>
-            <textarea maxlength="1000" id="massage" name="massage" placeholder="Введите сообщение..." required><?php echo $data[2]; ?></textarea>
+            <textarea maxlength="1000" id="massage" name="massage" placeholder="Введите сообщение..." required><?php echo $data['massage']; ?></textarea>
             <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
             <input type="submit" value="Сохранить">
             <p></p>
